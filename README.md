@@ -8,7 +8,8 @@ The goal of my project is to make music, an auditory experience, into a multi-se
 To tackle this issue, I have designed a wearable arm sleeve that vibrates and illuminates LEDs to the beat of music.  The sleeve has buttons to turn on and off the senses of sight and sound to allow the user to customize their experience.  In my original project proposal, I stated that the visual portion of the project would be LED lights mounted on the celling of my apartment, but I decided that to better serve my audience it was best to make the device completely portable as well as individually configurable.
 
 
-![Fig_1_Final_Product](https://github.com/liz-Hayes/feel_the_beat/blob/read_me_edit/fig_1.PNG)
+![fig_1](https://github.com/liz-Hayes/feel_the_beat/assets/87880510/acf2780e-338d-4fb6-a8ee-4aae82c6863c)
+
 **Figure 1: Final Product**
 
 In my project, vibrating motors are used to engage the sense of touch.  In the circuit diagram below (Fig 1), two vibrating motors are connected in series with a button that can cut off power to the buttons.  The output of the button is also wired to a transistor whose output is wired to the output of the vibration motors.  The transistor is used to protect from voltage spikes that the motors may create.  Additionally, a transistor is used to limit the amount of current being used by the motors by switching it on/off with larger current and controlling it with smaller current.  Finally, a resistor is used to prevent too much current from flowing out of the circuit.
@@ -17,7 +18,8 @@ A microphone is used to get the sound input to control the motors and LED’s.  
 Because my project is mobile, a battery is required which needs to provide enough amps at the correct voltage (3.7 volts).
 To know when to turn on the LEDs and vibration motors, I created a very simple beat detection algorithm.  The algorithm aims to detect beats by recording an array of the latest volume levels and taking the average.  If the current volume reading is greater than this average by a configurable scaling factor, then a beat is detected and the lights and the vibration motors are turned on. 
 
-![Fig_2_Circuit_Diagram](https://github.com/liz-Hayes/feel_the_beat/blob/read_me_edit/fig_2.png)
+![fig_2](https://github.com/liz-Hayes/feel_the_beat/assets/87880510/603e5b33-dcef-4a22-9536-9ca9470de29c)
+
 **Figure 2: Circuit Diagram**
 
 ## Implementation Details
@@ -41,7 +43,8 @@ Links to all items I purchased and references for connecting them to other compo
 - 2200mAh Lithium Ion Battery: https://www.microcenter.com/product/636273/adafruit-industries-lithium-ion-cylindrical-battery-37v-2200mah
 The Gemma comes set up with a language called CircuitPython, that is an open-source version of python for use with microcontrollers.[^7] For my project, I used this language and utilized the recommended Mu text editor that has a plotter as well as a REPL available for debugging.
 
-![Fig_3_Mu_Code_Editor](https://github.com/liz-Hayes/feel_the_beat/blob/read_me_edit/fig_3.png) 
+![fig_3](https://github.com/liz-Hayes/feel_the_beat/assets/87880510/b794a381-cfe0-4726-b93c-2af363c8ecb3)
+
 **Figure 3: Mu Code Editor**
 
 My project is run by code.py which uses several circuit python modules (time, rainbowio, board, neopixel, analogio, digitalio, and random).  The board, analogio, and digitalio libraries are used to help with assigning pins and configuring them as digital and analog inputs and outputs. The rainbowio and neopixel libraries are specifically used to control the Neopixel LEDs in my device. These libraries allow for a lot of creativity and customization with colors.   The time library is used to add a sleep to my code to prevent an overflow of data and to ensure that leds and the vibration motors stay on for long enough to be perceived.  The random library is used to provide a random value to the colorwheel function so that LEDs’ colors are constantly changing.
